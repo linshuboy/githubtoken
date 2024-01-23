@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 env:
-  IMAGE_NAME: githubtoken
+  IMAGE_NAME: github_copilot_token
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,11 +27,13 @@ jobs:
           # 从 GitHub.ref 中取出版本
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
 
+          echo $VERSION
+
           # 从 tag 名字中替换 v 字符
           # [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
 
           # Use Docker `latest` tag convention
-          # [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "master" ] && VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=latest

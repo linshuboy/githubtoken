@@ -1,4 +1,4 @@
-rm -f ~/coptoken3 && rm -f ~/.config/github-copilot/hosts.json && /app/Copilot-Activator-v0.2.0.beta.linux.x86_64 << EOF
+rm -f ~/coptoken3 && rm -f ~/.config/github-copilot/hosts.json && /app/copilot_activator_linux_x86_64_v0.3.6 << EOF
 $CODE
 4
 
